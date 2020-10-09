@@ -1,0 +1,80 @@
+{% extends "posts/base.html"%}
+{% block content %}
+
+	
+
+
+{% if user.is_authenticated %}
+
+	<article class="media content-section mt-5 w-75 ml-5 ">
+		<img class = 'rounded article-img' src="{{ object.author.profile.image.url }}">
+
+	  <div class="media-body">
+	    <div class="article-metadata">
+	      <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+	      <small class="text-muted float-right">{{ object.date_posted|date:"F d,Y" }}</small>
+	     {% if object.author == user %}
+	     <div class='position-relative ' >
+	
+	     	<a class="btn btn-primary btn-sm mr-2 mt-1  mb-2 float-right " href="{% url 'posts-update' object.id %}">Update</a>
+
+	     	<a class="btn btn-danger btn-sm mt-1 ml-2 mb-2 float-right" href="{% url 'posts-delete' object.id %}">Delete</a>
+	   
+	     </div>
+	     {% endif %}
+	    </div>
+	    <h3 class="article-title text-left ">{{ object.title }}</h3>
+	
+	    <h5 class="text-muted">Amount Required <span class="badge badge-secondary float-right">{{ object.amount }}  $ </span></h5>
+
+	    <small class="text-muted ">{{ object.location }}</small>
+
+
+
+	  </div>
+	</article>
+	
+	<button type="None" class="btn btn-dark btn-lg btn-block w-75 ml-5">Overview</button>
+	
+	<article class="media content-section ml-5 w-75 ">
+		<span class="text-body mt-3">{{ object.brief|linebreaks }}<span>
+	</article>
+	
+
+	<button type="None" class="btn btn-dark btn-lg btn-block w-75 ml-5">Description</button>
+	
+	<article class="media content-section ml-5 w-75 ">
+		<span class="text-body mt-3">{{ object.description|linebreaks }}</span>
+	</article>
+
+	 
+	<button type="None" class="btn btn-dark btn-lg btn-block ml-5 w-75">Money Transfer</button>
+		
+		<i class=" ml-5 ">Note: Any of the following can be used for JazzCash / EasyPaisa money transfer</i>
+		<br>
+	<ul class="list-group ml-5 w-75 mb-5">
+	  <li class="list-group-item">CNIC   <span class="float-right">{{object.cNIC}}</span></li>
+	  <li class="list-group-item">Mobile Account   <span class="float-right">{{object.mobileAccount}}</span></li>
+
+	  <li class="list-group-item">Bank Account  <span class="float-right">{{object.bankAccount}}</span></li>	  
+	</ul>
+
+
+	<button type="None" class="btn btn-dark btn-lg btn-block ml-5 w-75">Contact Informtaion</button>
+	
+	<ul class="list-group ml-5 w-75 mb-5">
+	  <li class="list-group-item">Phone Number <span class="float-right">{{object.phone}}</span></li>
+	  <li class="list-group-item">Email Address <span class="float-right">{{object.email}}</span></li>	  
+	</ul>
+
+{% else %}
+	<div class="jumbotron jumbotron-fluid mt-3">
+	  <div class="container">
+	    <h1 class="display-4">Restricted</h1>
+	    <hr>
+	    <p class="lead">Please Login to have access.</p>
+	  </div>
+	</div>
+{% endif %}
+
+{% endblock content %} 

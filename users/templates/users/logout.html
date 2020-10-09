@@ -1,0 +1,22 @@
+
+{% extends "posts/base.html"%}
+{% block content %}
+
+
+	<div class="jumbotron jumbotron-fluid mt-3">
+	  <div class="container">
+	    <h1 class="display-5">You have been Logged Out</h1>
+	    <hr>
+	    <small class="text-muted">
+			<script>
+			    function redirect(){
+			       window.location.href = "{% url 'landing' %}";
+			    }
+
+			    setTimeout(redirect, 3000); //3000 is equivalent to 3 seconds
+			</script>
+				 <p class="lead" >Redirecting in 3 secs</p>
+		</small>
+	  </div>
+	</div>
+{% endblock content %}

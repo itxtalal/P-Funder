@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'posts/landing.css' %}">
+    <title>Hello, world!</title>
+  </head>
+  <body >
+
+    <div class="container ">    
+        <div class="jumbotron text-center">
+            <h1 class="display-2">P-Funder</h1>
+ 
+            <hr class="my-4">
+            <p class="lead"> A platform to fundraise, whether you are an individual, group, or organization.</br> Feel free to ask for any kind of help </p>
+            <p class="lead">
+
+            {% if user.is_authenticated%}
+
+                <a class="btn btn-outline-dark btn-lg mt-4 mr-5 mb-2 " href="{% url 'posts-home' %}" role="button">Access</a>
+                <a class="btn btn-outline-dark btn-lg mt-4 ml-5 mb-2 " href="{% url 'logout' %}">Logout</a>
+                <hr>
+                <p class="lead"> You have full access to this platform</p>
+
+            {% else %}
+
+                <a class="btn btn-outline-dark btn-lg  " href="{% url 'login' %}" role="button">Log In</a>
+                <a class="btn btn-outline-dark btn-lg  " href="{% url 'register' %}" role="button">Register</a><br>
+                <p class="text-center"> OR</p>
+                <a class="btn btn-outline-white bg-light btn-lg mt-1" href="{% url 'posts-home' %}" role="button">Continue</a>
+                <hr>
+                <p class="text-center "> You need to Register yourself to have full access</p>
+
+    
+            {% endif %}
+
+            <hr>
+            <span class="lead">“Help one another in acts of piety and righteousness. And do not assist each other in acts of sinfulness and transgression. And be aware of Allah. Verily, Allah is severe in punishment” (Quran 5:2).
+            </span>
+        </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+    
+</html>

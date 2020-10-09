@@ -1,0 +1,31 @@
+
+{% extends "posts/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+	<div class="jumbotron jumbotron-fluid mt-3">
+	  <div class="container">
+	    	<form method="POST">
+			{% csrf_token %}
+
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4"><h1>Register Yourself</h1></legend>
+				<div class="w-75 ">
+				{{ form|crispy}}
+				</div>
+			</fieldset>
+	    <hr>
+	    	<div class="form-group text-right">
+				<button class="btn btn-dark" type="submit">Sign Up</button>
+			</div>
+		</form>
+	  </div>
+	  <div class="border-top pt-3 text-center">
+			<small class="text-muted">
+				Already Have An Account? <a class="btn btn-outline-secondary ml-3" href="{% url 'login' %}">Sign In</a>
+			</small>
+		</div>
+	</div>
+
+{% endblock content %}

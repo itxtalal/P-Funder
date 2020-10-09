@@ -1,0 +1,27 @@
+
+{% extends "posts/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+	
+	<div class="jumbotron jumbotron-fluid mt-1" id="box1" style="padding: 20px">
+	  <div class="container">
+	    	<form method="POST">
+			{% csrf_token %}
+
+			<fieldset class="form-group mt-5 ml-5 w-75">
+				<legend class="border-bottom  mb-5"><h1 class=" display-5 ">Create a New Post</h1></legend>
+
+				{{ form|crispy}}
+			</fieldset>
+
+			<div class="form-group ">
+				<button class="btn btn-dark ml-5" type="submit">Post</button>
+			</div>
+			</form>
+	  </div>
+	 
+	</div>
+
+
+{% endblock content %}
