@@ -7,11 +7,12 @@ A Django website
   email address.
 
 ## Dependancies
-- Python
-- Django  
-- Pillow
-- Crispy Forms
-- Phone-Field
+- python
+- django  
+- pillow
+- django-crispy-forms
+- django-phone-field
+
 ## After installing the Dependancies
 Simply open the terminal and go to the project folder and run "python manage.py runserver". It will give a localhost port, simply
 copy and paste that in the browser to navigate through the project.
