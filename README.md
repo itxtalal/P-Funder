@@ -14,5 +14,13 @@ A Django website
 - django-phone-field
 
 ## After installing the Dependancies
-Simply open the terminal and go to the project folder and run "python manage.py runserver". It will give a localhost port, simply
-copy and paste that in the browser to navigate through the project.
+Go to project root directory in the terminal 
+Then Run
+```
+python3 manage.py migrate
+```
+Then
+```
+python3 manage.py runserver
+```
+The terminal will show you the dev server hosted on localhost address with port number.
